@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #verificationForm="ngForm" class="ion-align-items-center">
+    <ion-text class="ion-padding-bottom ion-padding-start ion-padding-end"
+      >Verification</ion-text
+    >
+
+    <ion-row
+      class="input_check_button ion-align-items-center ion-padding-start ion-padding-end"
+    >
+      <ion-input
+        [(ngModel)]="verificationData.token"
+        class="normal-input"
+        placeholder="Token"
+        type="text"
+        #token="ngModel"
+        name="token"
+        required
+      >
+      </ion-input>
+    </ion-row>
+
+    <br />
+    <br />
+
+    <ion-row class="ion-padding-start ion-padding-end">
+      <button (click)="verify()" class="buttons">verify</button>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "medical-services",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

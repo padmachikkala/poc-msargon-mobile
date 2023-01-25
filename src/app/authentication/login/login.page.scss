@@ -1,0 +1,44 @@
+ion-toolbar.ios {
+  --background: #f4f4f4;
+  --ion-safe-area-top: 10px;
+}
+
+ion-header.md {
+  display: none;
+}
+
+ion-content {
+  // --background: #eff1f5;
+  // --background: #ffffff;
+}
+
+ion-row {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-text {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+ion-footer {
+  align-items: center;
+  justify-content: center;
+  ion-toolbar {
+    ion-title {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      margin-left: 10%;
+
+      span {
+        color: #16b3ac;
+      }
+    }
+  }
+}

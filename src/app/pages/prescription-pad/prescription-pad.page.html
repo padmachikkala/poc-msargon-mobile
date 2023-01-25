@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PrescriptionPad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [forceOverscroll]="false">
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Select Color"
+      (ionChange)="handleState($event)"
+    >
+      <ion-select-option *ngFor="let color of colors" value="{{color.color}}"
+        >{{color.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth">
+    <ion-icon
+      size="small"
+      slot="start"
+      name="brush"
+      [style.color]="selectedColor"
+    ></ion-icon>
+    <ion-icon slot="end" name="brush" [style.color]="selectedColor"></ion-icon>
+  </ion-range>
+
+  <ion-button (click)="clear()">Clear</ion-button>
+  <ion-button (click)="erase()">Erase</ion-button>
+  <ion-button (click)="undo()">undo</ion-button>
+  <ion-button (click)="draw()">Draw</ion-button>
+  <ion-button (click)="save()">Save</ion-button>
+
+  <canvas
+    #imageCanvas
+    (mousedown)="startDrawing($event)"
+    (touchstart)="startDrawing($event)"
+    (touchmove)="moved($event)"
+    (mousemove)="moved($event)"
+    (mouseup)="endDrawing()"
+    (touchend)="endDrawing()"
+  ></canvas>
+</ion-content>

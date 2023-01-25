@@ -1,0 +1,114 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" *ngIf="userEmail">
+      <ion-content>
+        <ion-list id="inbox-list" lines="none">
+          <ion-row class="header_row">
+            <div class="lottie__view">
+              <ng-lottie [options]="options"></ng-lottie>
+            </div>
+            <div style="margin-top: 20px">
+              <ion-list-header>{{ userName }}</ion-list-header>
+              <ion-note>{{ userEmail }}</ion-note>
+            </div>
+          </ion-row>
+
+          <br />
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
+              routerLinkActive="selected"
+            >
+              <img
+                src="{{ p.image }}"
+                style="height: 25px; width: 25px; margin-right: 10px"
+              />
+              <ion-label>{{ p.title }}</ion-label>
+              <ion-icon name="chevron-forward" size="small"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <br />
+        <ion-list id="labels-list">
+          <ion-item *ngFor="let label of labels" lines="none" button>
+            <img
+              src="{{ label.image }}"
+              style="height: 20px; width: 20px; margin-right: 5px"
+            />
+            <ion-label>{{ label.text }}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <br />
+        <ion-menu-toggle auto-hide="false">
+          <ion-item
+            *ngFor="let label of footer; let i = index"
+            lines="none"
+            button
+            (click)="signout()"
+          >
+            <img
+              src="{{ label.image }}"
+              style="height: 20px; width: 20px; margin-right: 5px"
+            />
+            <ion-label>{{ label.text }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-content>
+    </ion-menu>
+
+    <ion-menu contentId="main-content" type="overlay" *ngIf="!userEmail">
+      <ion-content>
+        <ion-list id="inbox-list" lines="none">
+          <ion-row class="header_row">
+            <div class="lottie__view">
+              <ng-lottie [options]="options"></ng-lottie>
+            </div>
+            <div style="margin-top: 20px">
+              <ion-list-header>{{ userName }}</ion-list-header>
+              <ion-note>{{ userEmail }}</ion-note>
+            </div>
+          </ion-row>
+
+          <br />
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of login; let i = index"
+          >
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
+              routerLinkActive="selected"
+            >
+              <img
+                src="{{ p.image }}"
+                style="height: 25px; width: 25px; margin-right: 10px"
+              />
+              <ion-label>{{ p.title }}</ion-label>
+              <ion-icon name="chevron-forward" size="small"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <br />
+        <ion-list id="labels-list">
+          <ion-item *ngFor="let label of labels" lines="none" button>
+            <img
+              src="{{ label.image }}"
+              style="height: 20px; width: 20px; margin-right: 5px"
+            />
+            <ion-label>{{ label.text }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

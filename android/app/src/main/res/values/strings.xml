@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dr Rapha</string>
+    <string name="title_activity_main">Dr Rapha</string>
+    <string name="package_name">com.godsgracetech.drrapha</string>
+    <string name="custom_url_scheme">com.godsgracetech.drrapha</string>
+</resources>

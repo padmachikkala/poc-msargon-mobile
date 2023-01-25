@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>treatedByDoctor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col>
+    <h4 class="side_heading">Symptoms</h4>
+
+    <ion-list *ngFor="let image of symptoms">
+      <ion-item
+        class="ion-justify-items-center ion-align-items-center"
+        (click)="getTreatedByDoc(image.symptomsId, 'Symptoms', check)"
+      >
+        <ion-checkbox slot="start" #check></ion-checkbox>
+        <img
+          src="{{image?.symptomImgUrl}}"
+          alt=""
+          class="image"
+          style="height: 40px"
+        />
+        <ion-text style="font-size: 16px; margin-left: 10px"
+          >{{image?.symptomDescription}}</ion-text
+        >
+      </ion-item>
+    </ion-list>
+  </ion-col>
+
+  <ion-col>
+    <h4 class="side_heading">Specialization</h4>
+    <br />
+
+    <ion-list *ngFor="let image of specializations">
+      <ion-item
+        class="ion-justify-items-center ion-align-items-center"
+        (click)="getTreatedByDoc(image.specializationId, 'Specializations', check)"
+      >
+        <ion-checkbox slot="start" #check></ion-checkbox>
+        <img src="{{image?.specializationImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px; margin-left: 10px"
+          >{{image?.specializationName}}</ion-text
+        >
+      </ion-item>
+    </ion-list>
+  </ion-col>
+
+  <ion-col>
+    <h4 class="side_heading">Diagnosis</h4>
+    <br />
+
+    <ion-list *ngFor="let image of Diagnosis">
+      <ion-item
+        class="ion-justify-items-center ion-align-items-center"
+        (click)="getTreatedByDoc(image.diagnosisId, 'Diagnosis', check)"
+      >
+        <ion-checkbox slot="start" #check></ion-checkbox>
+        <img src="{{image?.diagnosisImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px; margin-left: 10px"
+          >{{image?.diagnosisDescription}}</ion-text
+        >
+      </ion-item>
+    </ion-list>
+  </ion-col>
+
+  <ion-row class="button_container">
+    <button
+      (click)="submit()"
+      class="buttons"
+      style="width: 90%; border-radius: 10px; height: 40px; margin: 10px"
+    >
+      Submit
+    </button>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,142 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- header -->
+  <ion-row>
+    <ion-buttons>
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-button [routerLink]="['/location-search']">
+        <ion-icon class="location" name="location-sharp"></ion-icon>
+        <ion-text>Bangalore</ion-text>
+        <ion-icon class="chevron" name="chevron-down"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-row>
+
+  <!-- search -->
+  <ion-row class="ion-margin">
+    <div class="scroll_container">
+      <ion-icon name="search"></ion-icon>
+      <div>
+        <ul>
+          <li style="color: #34a853">Search for doctors</li>
+          <li style="color: #616161">Search for doctors</li>
+          <li style="color: #616161">Search for clinics and hospitals</li>
+          <li style="color: #616161">Search for Symptoms / Specialities</li>
+          <li style="color: #616161">Search for doctors</li>
+        </ul>
+      </div>
+    </div>
+  </ion-row>
+
+  <!-- banner -->
+  <ion-row class="card_container">
+    <ion-row>
+      <ion-text class="wrap_text">Book your appointment</ion-text>
+      <ion-button>
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-row style="display: flex; flex-direction: column" *ngFor="let image of bannerImages">
+        <img src="{{image.img}}" alt="" style="background-color: #28918cdc; height: 50px; border-radius: 30px" />
+        <ion-text style="font-size: 16px">{{image?.name}}</ion-text>
+      </ion-row>
+    </ion-row>
+  </ion-row>
+
+  <!-- services -->
+  <ion-col>
+    <ion-row class="services_main">
+      <div class="services" *ngFor="let image of services">
+        <img src="{{image.img}}" alt="" class="image_services" />
+        <ion-text style="font-size: 12px">{{image.name}}</ion-text>
+      </div>
+    </ion-row>
+  </ion-col>
+
+  <br />
+  <br />
+
+  <!-- <swiper>
+    <ng-template swiperSlide>Slide 1</ng-template>
+    <ng-template swiperSlide>Slide 2</ng-template>
+    <ng-template swiperSlide>Slide 3</ng-template>
+  </swiper> -->
+
+  <!-- <swiper
+    [keyboard]="true"
+    [pagination]="true"
+    [scrollbar]="true"
+    [zoom]="true"
+    class="swiper"
+    [config]="config"
+  >
+    <ng-template class="slide" swiperSlide>Slide 1</ng-template>
+    <ng-template class="slide" swiperSlide>Slide 2</ng-template>
+    <ng-template class="slide" swiperSlide>Slide 3</ng-template>
+  </swiper> -->
+
+  <!-- symptoms -->
+  <ion-col>
+    <h4 class="side_heading">Not feeling well!</h4>
+    <ion-text class="sub_heading">Treat common symptoms with top specialists</ion-text>
+    <ion-row class="image_main">
+      <div class="image_sub" *ngFor="let image of symptoms">
+        <img src="{{image?.symptomImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px">{{image?.symptomDescription}}</ion-text>
+      </div>
+    </ion-row>
+    <button class="buttons" [routerLink]="['/symptoms']">
+      Load more symptoms
+    </button>
+  </ion-col>
+
+  <!-- specilalists -->
+  <ion-col>
+    <h4 class="side_heading">Conditions that can be treated by</h4>
+    <br />
+
+    <ion-row class="image_main">
+      <div
+        class="image_sub"
+        *ngFor="let image of specializations"
+        (click)="getDoctors('specializations', image.specializationId)"
+      >
+        <img src="{{image?.specializationImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px">{{image?.specializationName}}</ion-text>
+      </div>
+    </ion-row>
+    <button class="buttons" [routerLink]="['/specialties']">
+      Load more specilalists
+    </button>
+  </ion-col>
+
+  <!-- diagnosis -->
+  <ion-col>
+    <h4 class="side_heading">Popular Health checkup and screening tests</h4>
+    <br />
+
+    <ion-row class="image_main">
+      <div
+        class="image_sub"
+        *ngFor="let image of Diagnosis"
+        (click)="getDoctors('diagnosis', image.diagnosisId)"
+      >
+        <img src="{{image?.diagnosisImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px">{{image?.diagnosisDescription}}</ion-text>
+      </div>
+    </ion-row>
+    <button class="buttons" [routerLink]="['/diagnosis']">
+      Load more Diagnosis
+    </button>
+  </ion-col>
+</ion-content>

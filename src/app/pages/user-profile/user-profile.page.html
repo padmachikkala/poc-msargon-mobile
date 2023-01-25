@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>userProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="ion-padding-bottom ion-padding-start ion-padding-end"
+    >Edit Profile</ion-text
+  >
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="userProfile.firstName"
+      class="eye-input"
+      placeholder="First name"
+      type="text"
+      #firstName="ngModel"
+      name="firstName"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="userProfile.middleName"
+      class="eye-input"
+      placeholder="Middle name"
+      type="text"
+      #middleName="ngModel"
+      name="middleName"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="userProfile.lastName"
+      class="eye-input"
+      placeholder="Last name"
+      type="text"
+      #lastName="ngModel"
+      name="lastName"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-radio-group (ionChange)="handleState($event)">
+    <ion-row class="ion-justify-content-around ion-margin">
+      <ion-row>
+        <ion-radio value="male"></ion-radio>
+        <ion-label class="ion-margin-start">Male</ion-label>
+      </ion-row>
+
+      <ion-row>
+        <ion-radio value="female"></ion-radio>
+        <ion-label class="ion-margin-start">Female</ion-label>
+      </ion-row>
+    </ion-row>
+  </ion-radio-group>
+
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Select State"
+      (ionChange)="handleState($event)"
+    >
+      <ion-select-option value="apples">Karnataka</ion-select-option>
+      <ion-select-option value="oranges">Andhra Pradesh</ion-select-option>
+      <ion-select-option value="bananas">Uttar Pradesh</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Select City"
+      (ionChange)="handleCity($event)"
+    >
+      <ion-select-option value="apples">Bangalore</ion-select-option>
+      <ion-select-option value="oranges">Hyderabad</ion-select-option>
+      <ion-select-option value="bananas">Lucknow</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br />
+  <ion-row class="button_container">
+    <button
+      (click)="submit($event)"
+      class="buttons"
+      style="width: 90%; border-radius: 10px; height: 40px; margin: 10px"
+    >
+      Submit
+    </button>
+  </ion-row>
+</ion-content>

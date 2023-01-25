@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>myDoctors</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin ion-align-items-center">
+    <ion-input
+      placeholder="Search doctor"
+      name="doctor"
+      #doctor="ngModel"
+      [(ngModel)]="specializationsSearch.doctor"
+      type="text"
+      (ionInput)="searchDocAndSpec($event)"
+    >
+      <ion-icon name="search"></ion-icon>
+    </ion-input>
+  </ion-row>
+
+  <ion-card *ngFor="let doctor of doctors">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <div style="flex: 1; display: flex; flex-direction: row">
+            <img src="assets/doctor.png" alt="" class="image" />
+            <ion-row style="flex: 1; flex-wrap: wrap">
+              <ion-label
+                >Name:
+                <ion-text
+                  >{{doctor?.firstName}} {{doctor?.lastName}}</ion-text
+                ></ion-label
+              >
+              <ion-label class="none"
+                ><ion-text>{{doctor?.qualification}}</ion-text></ion-label
+              >
+              <ion-label *ngIf="doctor?.consultation_fee"
+                >Fee:
+                <ion-text
+                  style="
+                    background-color: #16b3ac;
+                    color: #fff;
+                    border-radius: 10px;
+                    padding: 2px;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                  "
+                  >{{doctor?.consultation_fee}}</ion-text
+                ></ion-label
+              >
+            </ion-row>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-label>State: <ion-text>{{doctor?.state}}</ion-text></ion-label>
+          <br />
+          <ion-label>City: <ion-text>{{doctor?.city}}</ion-text></ion-label
+          ><br />
+          <ion-label
+            >Languages: <ion-text>{{doctor?.languages}}</ion-text></ion-label
+          ><br />
+          <ion-label>Gender: <ion-text>{{doctor?.gender}}</ion-text></ion-label
+          ><br />
+          <ion-label>Age: <ion-text>{{doctor?.age}}</ion-text></ion-label
+          ><br />
+          <ion-label
+            >Experience:
+            <ion-text>{{doctor?.practicingFrom}}</ion-text></ion-label
+          ><br />
+          <ion-label
+            >Description:
+            <ion-text>{{doctor?.professionalStatement}}</ion-text></ion-label
+          ><br />
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-card>
+</ion-content>

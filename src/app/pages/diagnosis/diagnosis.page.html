@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Diagnosis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin ion-align-items-center">
+    <ion-input
+      placeholder="Search diagnosis"
+      name="diagnosis"
+      #diagnosis="ngModel"
+      [(ngModel)]="diagnosisSearch.diagnosis"
+      type="text"
+      (ionInput)="searchDiagnosis($event)"
+    >
+      <ion-icon name="search"></ion-icon>
+    </ion-input>
+  </ion-row>
+
+  <ion-col>
+    <h4 class="side_heading">Popular Health checkup and screening tests</h4>
+    <br />
+
+    <ion-row class="image_main">
+      <div class="image_sub" *ngFor="let image of Diagnosis">
+        <img src="{{image?.diagnosisImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px"
+          >{{image?.diagnosisDescription}}</ion-text
+        >
+      </div>
+    </ion-row>
+  </ion-col>
+</ion-content>

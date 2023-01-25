@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Specialties</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin ion-align-items-center">
+    <ion-input
+      placeholder="Search specializations"
+      name="specialization"
+      #specialization="ngModel"
+      [(ngModel)]="specializationsSearch.specializations"
+      type="text"
+      (ionInput)="searchSpecializations($event)"
+    >
+      <ion-icon name="search"></ion-icon>
+    </ion-input>
+  </ion-row>
+
+  <ion-col>
+    <h4 class="side_heading">Conditions that can be treated by</h4>
+    <br />
+
+    <ion-row class="image_main">
+      <div class="image_sub" *ngFor="let image of specializations">
+        <img src="{{image?.specializationImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px"
+          >{{image?.specializationName}}</ion-text
+        >
+      </div>
+    </ion-row>
+  </ion-col>
+</ion-content>

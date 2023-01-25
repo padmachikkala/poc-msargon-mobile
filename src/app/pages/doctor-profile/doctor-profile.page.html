@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>doctorProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="ion-padding-bottom ion-padding-start ion-padding-end"
+    >Edit Profile</ion-text
+  >
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="doctorProfile.firstName"
+      class="eye-input"
+      placeholder="First name"
+      type="text"
+      #firstName="ngModel"
+      name="firstName"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="doctorProfile.lastName"
+      class="eye-input"
+      placeholder="Last name"
+      type="text"
+      #lastName="ngModel"
+      name="lastName"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="doctorProfile.professionalStatement"
+      class="eye-input"
+      placeholder="Professional statement"
+      type="text"
+      #professionalStatement="ngModel"
+      name="professionalStatement"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <ion-radio-group (ionChange)="handleState($event)">
+    <ion-row class="ion-justify-content-around ion-margin">
+      <ion-row>
+        <ion-radio value="male"></ion-radio>
+        <ion-label class="ion-margin-start">Male</ion-label>
+      </ion-row>
+
+      <ion-row>
+        <ion-radio value="female"></ion-radio>
+        <ion-label class="ion-margin-start">Female</ion-label>
+      </ion-row>
+    </ion-row>
+  </ion-radio-group>
+
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Practicing from"
+      (ionChange)="handleFrom($event)"
+    >
+      <ion-select-option value="apples">1 Year</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Age"
+      (ionChange)="handleFrom($event)"
+    >
+      <ion-select-option value="apples" *ngFor="let age of Age"
+        >{{age}}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Select State"
+      (ionChange)="handleState($event)"
+    >
+      <ion-select-option value="apples">Apples</ion-select-option>
+      <ion-select-option value="oranges">Oranges</ion-select-option>
+      <ion-select-option value="bananas">Bananas</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Select City"
+      (ionChange)="handleCity($event)"
+    >
+      <ion-select-option value="apples">Apples</ion-select-option>
+      <ion-select-option value="oranges">Oranges</ion-select-option>
+      <ion-select-option value="bananas">Bananas</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Qualification"
+      (ionChange)="handleCity($event)"
+    >
+      <ion-select-option value="apples">Apples</ion-select-option>
+      <ion-select-option value="oranges">Oranges</ion-select-option>
+      <ion-select-option value="bananas">Bananas</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br />
+  <ion-item lines="none">
+    <ion-select
+      interface="action-sheet"
+      placeholder="Languages"
+      (ionChange)="handleCity($event)"
+    >
+      <ion-select-option value="apples">Apples</ion-select-option>
+      <ion-select-option value="oranges">Oranges</ion-select-option>
+      <ion-select-option value="bananas">Bananas</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-input
+      [(ngModel)]="doctorProfile.consultation_fee"
+      class="eye-input"
+      placeholder="Consultation fee"
+      type="text"
+      #consultation_fee="ngModel"
+      name="consultation_fee"
+      required
+    >
+    </ion-input>
+  </ion-row>
+
+  <br />
+  <ion-row class="button_container">
+    <button
+      (click)="submit($event)"
+      class="buttons"
+      style="width: 90%; border-radius: 10px; height: 40px; margin: 10px"
+    >
+      Submit
+    </button>
+  </ion-row>
+</ion-content>

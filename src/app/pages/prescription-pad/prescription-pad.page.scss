@@ -1,0 +1,19 @@
+canvas {
+  border: 1px solid rgb(187, 178, 178);
+  overflow: hidden;
+}
+
+.color-block {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin: 4px;
+}
+
+ion-item {
+  border-radius: 10px;
+}
+
+ion-select::part(icon) {
+  display: none !important;
+}

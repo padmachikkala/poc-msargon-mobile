@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #registerFrom="ngForm" class="ion-align-items-center">
+    <ion-text class="ion-padding-bottom ion-padding-start ion-padding-end"
+      >Patient Registration</ion-text
+    >
+
+    <ion-row
+      class="input_eye_button ion-align-items-center ion-padding-start ion-padding-end"
+    >
+      <ion-input
+        placeholder="Full name"
+        class="normal-input"
+        type="text"
+        name="fullName"
+        [(ngModel)]="registration.fullName"
+        #fullName="ngModel"
+        required
+      >
+      </ion-input>
+    </ion-row>
+
+    <ion-row
+      class="input_eye_button ion-align-items-center ion-padding-start ion-padding-end"
+    >
+      <ion-input
+        placeholder="Email"
+        class="normal-input"
+        type="email"
+        name="username"
+        [(ngModel)]="registration.username"
+        #username="ngModel"
+        required
+      ></ion-input>
+    </ion-row>
+
+    <ion-row
+      class="input_eye_button ion-align-items-center ion-padding-start ion-padding-end"
+    >
+      <ion-input
+        placeholder="Mobile number"
+        class="normal-input"
+        type="tel"
+        name="number"
+        [(ngModel)]="registration.mobileNumber"
+        #number="ngModel"
+        required
+        pattern="^\d{10}$"
+        maxLength="10"
+      ></ion-input>
+    </ion-row>
+
+    <ion-row
+      class="input_eye_button ion-align-items-center ion-padding-start ion-padding-end"
+    >
+      <ion-input
+        [(ngModel)]="registration.password"
+        class="eye-input"
+        placeholder="Password"
+        [type]="showPassword ? 'text' : 'password'"
+        type="password"
+        #password="ngModel"
+        name="password"
+        required
+      >
+      </ion-input>
+
+      <button class="eye-button" (click)="onPasswordToggle()">
+        <ion-icon
+          [name]="showPassword ? 'eye-off' : 'eye'"
+          slot="end"
+        ></ion-icon>
+      </button>
+    </ion-row>
+
+    <br />
+    <br />
+
+    <ion-row class="ion-padding-start ion-padding-end">
+      <button (click)="signup($event)" class="buttons">signup</button>
+    </ion-row>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-align-items-center ion-justify-content-center">
+    <ion-title
+      >Are you a doctor?
+      <span [routerLink]="['/providers-reg']">Sign-up</span></ion-title
+    >
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Symptoms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin ion-align-items-center">
+    <ion-input
+      placeholder="Search symptoms"
+      name="symptom"
+      #symptom="ngModel"
+      [(ngModel)]="specializationsSearch.symptoms"
+      type="text"
+      (ionInput)="searchSymptoms($event)"
+    >
+      <ion-icon name="search"></ion-icon>
+    </ion-input>
+  </ion-row>
+
+  <ion-col>
+    <h4 class="side_heading">Not feeling too well?</h4>
+    <ion-text class="sub_heading"
+      >Treat common symptoms with top specialists</ion-text
+    >
+
+    <ion-row class="image_main">
+      <div class="image_sub" *ngFor="let image of symptoms">
+        <img src="{{image?.symptomImgUrl}}" alt="" class="image" />
+        <ion-text style="font-size: 16px"
+          >{{image?.symptomDescription}}</ion-text
+        >
+      </div>
+    </ion-row>
+  </ion-col>
+</ion-content>

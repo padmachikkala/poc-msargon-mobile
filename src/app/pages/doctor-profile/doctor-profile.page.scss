@@ -1,0 +1,39 @@
+ion-input {
+  border: none;
+  background-color: #e5edf7;
+  border-radius: 10px;
+  height: 40px;
+  --padding-start: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+ion-text {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+ion-radio {
+  --color: #ddd;
+  --color-checked: #16b3ac;
+}
+
+ion-item {
+  margin-left: 16px;
+  margin-right: 16px;
+  --background: #e5edf7;
+  border-radius: 10px;
+}
+
+ion-select::part(icon) {
+  display: none !important;
+}
+
+.button_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
